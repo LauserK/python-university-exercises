@@ -35,30 +35,37 @@ menor = matriz[0][0]
 for i in range(filas):
     for j in range(columnas):
         if i == j:
+            # si el indice pertenece a un miembro de la diagonal p
+            # la guardamos en el vector
             vector_diagonal_principal[i] = matriz[i][j]
 
         if i+j == columnas - 1:
+            # si el indice pertenece a un miembro de la diagonal s
+            # la guardamos en el vector
             vector_diagonal_secundaria[i] = matriz[i][j]
-
+        # Suma del vector principal con el vector secundario
         op = vector_diagonal_principal[i] + vector_diagonal_secundaria[i]
         vector_diagonal_resultante[i] = op
 
+        # Calcular numero mayor
         if matriz[i][j] > mayor:
-            mayor = matriz[i][j]
-            pos_fila_mayor = i
-            pos_columna_mayor = j
+            mayor = matriz[i][j] # asignamos valor como mayor
+            pos_fila_mayor = i # asignamos la posicion en la fila
+            pos_columna_mayor = j # asignamos la posicion en la columna
 
+        # Calcular numero menor
         if matriz[i][j] < menor:
             menor = matriz[i][j]
-            pos_fila_menor = i
-            pos_columna_menor = j
+            pos_fila_menor = i # asignamos la posicion en la fila
+            pos_columna_menor = j # asignamos la posicion en la columna
 
-
+# calcular cantidad pares y suma de digitos
 for i in range(filas):
+    # ya que se va a modificar el numero usamos una variable auxiliar
     aux = vector_diagonal_resultante[i]
     while aux != 0:
         dig = aux % 10
-        suma_digitos += dig
+        suma_digitos += dig # suma de digitos del numero
         if dig % 2 == 0:
             cantidad_pares += 1
         aux //= 10
