@@ -14,21 +14,17 @@ def vector(vector):
       print(x, end=' ')
   print('\n')
 
-tamano = 8#int(input('Tamano de los vectores '))
-#a = [0]*tamano
-#b = [0]*tamano
+tamano = int(input('Tamano de los vectores '))
+a = [0]*tamano
+b = [0]*tamano
 c = [0]*tamano
 
-a = [7, 10, 3, 9, 4, 37, 6, 25]
-b = [2, 9, 31, 23, 5, 14, 3, 2]
 
-"""
 for i in range(tamano):
   a[i] = int(input('Cargue valor vector a en pos {0}: '.format(i)))
 
 for i in range(tamano):
-  a[i] = int(input('Cargue valor vector b en pos {0}: '.format(i)))
-"""
+  b[i] = int(input('Cargue valor vector b en pos {0}: '.format(i)))
 
 # generar c
 i=0
@@ -55,14 +51,6 @@ for x in c:
     vectorprimo[pos] = x
     pos +=1
 
-vectorordenado = vectorprimo
-for i in range(primos):
-  for j in range(i+1,primos):
-    if vectorordenado[i]>vectorordenado[j]:
-      aux=vectorordenado[i]
-      vectorordenado[i]=vectorordenado[j]
-      vectorordenado[j]=aux
-
 print("A")
 vector(a)
 print("B")
@@ -71,5 +59,14 @@ print("C")
 vector(c)
 print("PRIMOS")
 vector(vectorprimo)
+
+vectorordenado = vectorprimo
+for i in range(primos):
+  for j in range(i+1,primos):
+    if vectorordenado[i]>vectorordenado[j]:
+      aux=vectorordenado[i]
+      vectorordenado[i]=vectorordenado[j]
+      vectorordenado[j]=aux
+
 print("ORDENADO")
 vector(vectorordenado)
