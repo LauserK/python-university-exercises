@@ -19,7 +19,7 @@ Se considera que un paciente es sospechoso de ser portador del virus gripal A(H1
 siguientes: la temperatura es mayor de 38 °C, la hemoglobina está por debajo de 10 mg/dl y que la cantidad
 de glóbulos blancos esté por debajo de 4.000
 """
-
+# abrir archivos de texto
 archivo = open('fiebre.txt')
 sospechosos = open('sospechosos.txt', 'w')
 no_sospechosos = open('nosospechosos.txt', 'w')
@@ -39,6 +39,8 @@ for registro in archivo:
     globulos = int(campos[4])
     cantidad_pacientes += 1
 
+    # si la persona es sospechosa de tener el virus
+    # agregamos al archivo de texto la misma info que esta en fiebre.txt
     if temperatura > 38 and hemoblogina < 10 and globulos < 4000:
         cant_sospechosos += 1
         sospechosos.write(registro)
@@ -49,10 +51,12 @@ for registro in archivo:
             mayor_globulos = globulos
 
     else:
+        # si no es sospechoso lo guardamos en no_sospechosas
         no_sospechosos.write(registro)
 
 if cantidad_pacientes != 0:
     porcentaje = (cant_sospechosos * 100) / cantidad_pacientes
 
+# mostrar informacion requerida
 print('Porcentaje de pacientes no sospechosos: {0}%'.format(porcentaje))
 print('Nombre del paciente e institución donde se localiza el paciente con mayor cantidad de glóbulos blancos: {0} - {1}'.format(nombre_sospechoso, institucion_sospechoso)) 

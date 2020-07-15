@@ -30,9 +30,11 @@ cant_2 = 0
 porcentaje_3 = 0
 cant_3 = 0
 
+# Creamos el reporte con el flag w para indicar que se va a escribir
 reporte = open('REPORTE.txt', 'w')
 
 for registro in notas:
+    # creamos array de datos de la linea
     campos = registro.split(',')
     cedula = campos[0]
     nombre = campos[1]
@@ -49,6 +51,7 @@ for registro in notas:
         cedula_mayor = cedula
         nota_mayor = nota_final
 
+    # Si aprobo el curso escribir en el archivo reporte
     if nota_final >= 10:
         reporte.write('{0},{1},{2}\n'.format(cedula, nombre, nota_final))
 
@@ -70,6 +73,7 @@ if lineas != 0:
     porcentaje_2 = (cant_2 * 100) / lineas
     porcentaje_3 = (cant_3 * 100) / lineas
 
+# escribir demas peticiones en el archivo de texto
 reporte.write('PROMEDIO FINAL SECCION: {0}\n'.format(promedio))
 reporte.write('{0},{1}\n'.format(cedula_mayor, nombre_mayor))
 reporte.write('{0}%,{1}%,{2}%\n'.format(porcentaje_1, porcentaje_2, porcentaje_3))
