@@ -60,13 +60,12 @@ vector(c)
 print("PRIMOS")
 vector(vectorprimo)
 
-vectorordenado = vectorprimo
 for i in range(primos):
   for j in range(i+1,primos):
-    if vectorordenado[i]>vectorordenado[j]:
-      aux=vectorordenado[i]
-      vectorordenado[i]=vectorordenado[j]
-      vectorordenado[j]=aux
+    if vectorprimo[i]>vectorprimo[j]:
+      aux=vectorprimo[i]
+      vectorprimo[i]=vectorprimo[j]
+      vectorprimo[j]=aux
 
 print("ORDENADO")
-vector(vectorordenado)
+vector(vectorprimo)

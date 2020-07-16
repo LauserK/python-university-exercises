@@ -6,6 +6,7 @@ suma_serie = [[0] * n for i in range(n)]
 x = int(input("Ingrese x: "))
 y = int(input("Ingrese y: "))
 z = int(input("Ingrese z: ")) 
+suma = 0
 
 def calculo(numero):
   op = 0
@@ -27,6 +28,8 @@ for i in range(n):
   for j in range(n):
     Numero_serie[i][j] = random.randint(1,10)
     suma_serie[i][j] = calculo(Numero_serie[i][j])
+    if i == j:
+      suma += suma_serie
 
 print("Matriz Numero_serie")
 for i in range(n):
@@ -39,3 +42,8 @@ for i in range(n):
   for j in range(n):
     print("{0:10.2f}".format(suma_serie[i][j]), end=" ")
   print("\n")
+
+promedio = suma / n
+print("promedio diagonal principal: {0}".format(promedio))
+
+
